@@ -11,7 +11,7 @@ This repository contains the code for a virtual try-on application built using F
 Before running this project, ensure you have the following:
 - Twilio account setup with whatsapp service enabled.
 - Normal HF account to use the Gradio API.
-- Python 3.6+ installed on your machine.
+- Compatible Python installed on your machine.
 
 ## Twilio Setup
 
@@ -68,6 +68,11 @@ Also Updated the .env file with your ngrok URL.
 2. It will ask you to send the photo of the garment
 3. After that wait for a few seconds and it displays you your image.
 
+## Results
+
+![alt text](1.jpg)
+![alt text](2.jpg)
+![alt text](3.jpg)
    
 
 
