@@ -68,6 +68,17 @@ Also Updated the .env file with your ngrok URL.
 2. It will ask you to send the photo of the garment
 3. After that wait for a few seconds and it displays you your image.
 
+## Note:
+I was unable to deploy this for free because of some dependency problems on Render. But we can use that and many paid services for deployment.
+
+## Future Scopes
+1. To handle scaling of this we can create a more robust api with session managements for each user , queuing to get proper results.
+2. This model is running via inference API of huggingface which is basically gpu usage dependent. To improve the speed we can clone that in our HF Space where we can run this on a better gpu to get faster results.
+3. Instead of using Ngrok we can deploy this on Cloud platforms to get better speed and scalable solutions.
+4. Improvements can be added in a way where we describe the garment , we can customize that according to each garment to get a better description of that.
+5. Other use cases are many. In healthcare, we can create a ambulance service using Twilio SMS/Whatsapp , we can create a medicine delivery system. This application can be used in many E-commerce apps to get a better view of what you're buying.
+6. Security implications are many , because we need to have many guardrails present because people might send NSFW content via this channel , also it might have some issues displaying the  body structure of the user which might create some scenes. 
+
 ## Results
 
 ![alt text](1.jpg)
