@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    return "This is the virtual try-on chatbot API.", 200
+    return "Virtual Tryon Assignment. Made by : Nihar Mittal", 200
 
 user_sessions = {}
 
@@ -33,16 +33,16 @@ def webhook():
     resp = MessagingResponse()
 
     if media_url is None:
-        resp.message("We didn't receive an image. Please try sending your image again.")
+        resp.message("I did not get an image. Try sending your image again.")
         return str(resp)
 
     if sender_number not in user_sessions:
         user_sessions[sender_number] = {}
         if media_url:
             user_sessions[sender_number]['person_image'] = media_url
-            resp.message("Great! Now please send the image of the garment you want to try on.")
+            resp.message("Nice! Now please send the image of the cloth you want to try on.")
         else:
-            resp.message("Please send your image to begin the virtual try-on process.")
+            resp.message("Please send your image to begin the virtual try-on.")
     elif 'person_image' in user_sessions[sender_number] and 'garment_image' not in user_sessions[sender_number]:
         if media_url:
             user_sessions[sender_number]['garment_image'] = media_url
@@ -51,12 +51,12 @@ def webhook():
                 send_media_message(sender_number, try_on_image_url)
                 resp.message("Here is your virtual try-on result!")
             else:
-                resp.message("Sorry, something went wrong with the try-on process.")
+                resp.message("Soomething went wrong with the try-on process.")
             del user_sessions[sender_number]
         else:
-            resp.message("Please send the garment image to complete the process.")
+            resp.message("Do send the garment image to complete the process.")
     else:
-        resp.message("Please send your image to begin the virtual try-on process.")
+        resp.message("Please send your image to begin the virtual try-on.")
 
     return str(resp)
 
@@ -112,7 +112,7 @@ def send_to_gradio(person_image_url, garment_image_url):
 def send_media_message(to_number, media_url):
     message = client.messages.create(
         from_='whatsapp:+14155238886',
-        body="Here is your virtual try-on result:",
+        body="Your virtual try-on result:",
         media_url=[media_url],
         to=to_number
     )
